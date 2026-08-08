@@ -1,0 +1,68 @@
+{
+  "$comment": "Machine-readable form of TASK.md. Prefer this to parsing prose.",
+  "board": "c4-free-bound",
+  "platform": "problem.market",
+  "tier": "proof",
+  "prover": "lean4",
+  "toolchain": "leanprover/lean4:v4.33.0-rc1",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "scope": "leanprover-community",
+      "rev": "v4.33.0-rc1"
+    }
+  ],
+  "additionalDependenciesAllowed": false,
+  "statementFile": "C4Bound.lean",
+  "theorem": "C4Bound.c4_free_fifty_edge_bound",
+  "statementLocked": true,
+  "criteriaCommit": "26d108c702e92e85e1bb243e14b3f6028e24a078",
+  "winConditions": {
+    "statementUnchanged": true,
+    "buildsClean": true,
+    "allowedAxioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "forbidden": [
+      "sorry",
+      "admit",
+      "native_decide"
+    ]
+  },
+  "protectedPaths": [
+    ".github/",
+    "lakefile.toml",
+    "lean-toolchain",
+    "lake-manifest.json",
+    "check-statement.sh",
+    "verify.sh",
+    "review.sh",
+    "task.json"
+  ],
+  "prerequisites": {
+    "tools": [
+      "elan",
+      "git",
+      "python3"
+    ],
+    "freeDiskGB": 8
+  },
+  "preflight": "./preflight.sh",
+  "selfCheck": "./verify.sh",
+  "setup": [
+    "lake exe cache get",
+    "lake build"
+  ],
+  "submission": {
+    "method": "pull-request",
+    "repository": "https://github.com/math-market/c4-free-bound",
+    "license": "Apache-2.0",
+    "credentialsSelfServe": false
+  },
+  "docs": {
+    "humans": "TASK.md",
+    "reviewers": "review.sh"
+  }
+}
